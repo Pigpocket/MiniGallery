@@ -82,6 +82,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="movieNameLabel" destination="vIn-Dh-WJf" id="LwI-rk-buX"/>
+                        <outlet property="moviesLabel" destination="lPc-y2-7g6" id="h6c-NE-OJw"/>
+                        <outlet property="scrollView" destination="b0w-tE-O4U" id="0Ky-Mp-MhT"/>
+                        <outlet property="stackView" destination="e4K-22-smW" id="dEs-Mz-FId"/>
+                        <outlet property="swipeView" destination="9lZ-e8-QeJ" id="rXu-1f-DLd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
