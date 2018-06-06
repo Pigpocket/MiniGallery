@@ -28,52 +28,56 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        ClientClass.sharedInstance().taskForGetMiniGalleryData(method: "", parameters: ["" : ""]) { (media, error) in
+        ClientClass.sharedInstance().taskForGetMiniGalleryData() { (media, error) in
             
             if error != nil {
-                print("Shit done fucked up")
+                print("Error getting media")
             }
             
             if let media = media {
-                print("This is the goddamn media: \(media)")
+                Asset.sharedInstance = Asset.assetFromResults(media as! [[String : AnyObject]])
+                print(Asset.sharedInstance[1].video)
+                
+                self.initializeVideoPlayerWithVideo()
             }
         }
         
-        //initializeVideoPlayerWithVideo()
+        ClientClass.sharedInstance().getMiniGalleryResults { (assets, error) in
+            
+            if error != nil {
+                print("Convenience error")
+            }
+            
+            if let assets = assets {
+                print("These are the convenience assets: \(assets)")
+            }
+        }
     }    
     
-//    func initializeVideoPlayerWithVideo() {
-//
-//        print("Nah tho?")
-//
-//        // get the path string for the video from assets
-//        //let videoString:String? = Bundle.main.path(forResource: "https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy", ofType: "mp4")
-//        //guard let unwrappedVideoPath = videoString else {return}
-//
-//        print("Yes, tho")
-//
-//        // convert the path string to a url
-//        let videoUrl = URL(fileURLWithPath: "https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy")
-//
-//        // initialize the video player with the url
-//        self.player = AVPlayer(url: videoUrl)
-//
-//        // create a video layer for the player
-//        let layer: AVPlayerLayer = AVPlayerLayer(player: player)
-//
-//        // make the layer the same size as the container view
-//        layer.frame = swipeView.bounds
-//
-//        // make the video fill the layer as much as possible while keeping its aspect size
-//        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-//
-//        // add the layer to the container view
-//        swipeView.layer.addSublayer(layer)
-//
-//        player?.play()
-//
-//        print("This shit happened")
-//    }
+    func initializeVideoPlayerWithVideo() {
+
+        // initialize AVPlayerItem
+        let playerItem = AVPlayerItem(asset: Asset.sharedInstance[1].video)
+        
+        // initialize the video player with the player item
+        self.player = AVPlayer(playerItem: playerItem)
+
+        // create a video layer for the player
+        let layer: AVPlayerLayer = AVPlayerLayer(player: player)
+
+        // make the layer the same size as the container view
+        layer.frame = swipeView.frame
+
+        // make the video fill the layer as much as possible while keeping its aspect size
+        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+
+        // add the layer to the container view
+        swipeView.layer.addSublayer(layer)
+
+        player?.play()
+
+        print("Video playing")
+    }
     
 }
 

@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
+import AVFoundation
 
 class ClientClass {
     
-    func taskForGetMiniGalleryData(method: String, parameters: [String:Any], completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: Error?) -> Void) {
+    func taskForGetMiniGalleryData(completionHandlerForGET: @escaping (_ results: AnyObject?, _ error: Error?) -> Void) {
         
         let session = URLSession.shared
         let urlString = "http://private-04a55-videoplayer1.apiary-mock.com/pictures"
@@ -93,12 +95,43 @@ class ClientClass {
         return "?\(keyValuePairs.joined(separator: "&"))"
     }
     
-    //    func taskForGetBusinessInfo(method: String, completionHandlerForGETBusinessInfo: @escaping (_ url: URL, _ error: NSError?) -> Void) {
-    //
-    //        let urlString = (YelpClient.Constants.yelpWebURL + method).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-    //        let url = URL(string: urlString!)!
-    //        completionHandlerForGETBusinessInfo(url, nil)
-    //    }
+    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func getImage(_ urlString: String?, completionHandler handler: @escaping (_ image: UIImage) -> Void) {
+        
+        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
+            
+            if let url = URL(string: urlString!) {
+                if let imgData = try? Data(contentsOf: url) {
+                    if let img = UIImage(data: imgData) {
+                        
+                        
+                        performUIUpdatesOnMain {
+                            handler(img)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+//    func getVideo(_ urlString: String?, completionHandler handler: @escaping (_ video: AVAsset) -> Void) {
+//
+//        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
+//
+//            if let url = URL(string: urlString!) {
+//                if let videoData = AVAsset(url: url) {
+//                    if let video = AVAsset(data: videoData) {
+//                        handler(video)
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     class func sharedInstance() -> ClientClass {
         struct Singleton {
