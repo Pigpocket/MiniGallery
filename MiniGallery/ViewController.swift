@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var swipeView: UIView!
     @IBOutlet weak var scrollView: UIView!
     @IBOutlet weak var movieNameLabel: UILabel!
-    
+    @IBOutlet weak var videoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,17 +70,17 @@ class ViewController: UIViewController {
         // create a video layer for the player
         let layer: AVPlayerLayer = AVPlayerLayer(player: queuePlayer)
         
-        // make the layer the same size as the container view
-        layer.frame = swipeView.frame
-
-        // make the video fill the layer as much as possible while keeping its aspect size
-        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-
-        // add the layer to the container view
-        swipeView.layer.addSublayer(layer)
-
+        performUIUpdatesOnMain {
+            // make the layer the same size as the container view
+            layer.frame = self.videoView.frame
+            
+            // make the video fill the layer as much as possible while keeping its aspect size
+            layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            
+            // add the layer to the container view
+            self.videoView.layer.addSublayer(layer)
+        }
         queuePlayer?.play()
     }
-    
 }
 
