@@ -71,6 +71,7 @@ class ViewController: UIViewController {
         let layer: AVPlayerLayer = AVPlayerLayer(player: queuePlayer)
         
         performUIUpdatesOnMain {
+            
             // make the layer the same size as the container view
             layer.frame = self.videoView.frame
             

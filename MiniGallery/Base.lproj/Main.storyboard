@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MiniGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPc-y2-7g6">
-                                <rect key="frame" x="0.0" y="20" width="375" height="72"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="72"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="AZH-PJ-JHo"/>
@@ -30,13 +30,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e4K-22-smW">
-                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="476"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lZ-e8-QeJ" userLabel="Swipe View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="285.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIn-Dh-WJf" userLabel="Video Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="72" id="5MY-H2-sQ2"/>
@@ -46,7 +46,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DY-Dr-Pgw" userLabel="Video View">
-                                                <rect key="frame" x="0.0" y="72" width="375" height="273"/>
+                                                <rect key="frame" x="0.0" y="72" width="320" height="213.5"/>
                                                 <color key="backgroundColor" red="0.71372549019999998" green="0.70980392160000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
@@ -57,12 +57,12 @@
                                             <constraint firstItem="vIn-Dh-WJf" firstAttribute="top" secondItem="9lZ-e8-QeJ" secondAttribute="top" id="OzG-yv-jJb"/>
                                             <constraint firstAttribute="bottom" secondItem="7DY-Dr-Pgw" secondAttribute="bottom" id="UUO-hb-ekH"/>
                                             <constraint firstAttribute="trailing" secondItem="7DY-Dr-Pgw" secondAttribute="trailing" id="jiv-dD-lUE"/>
-                                            <constraint firstItem="7DY-Dr-Pgw" firstAttribute="top" secondItem="vIn-Dh-WJf" secondAttribute="bottom" id="kde-gC-X3u"/>
+                                            <constraint firstItem="7DY-Dr-Pgw" firstAttribute="top" secondItem="vIn-Dh-WJf" secondAttribute="bottom" id="q76-4n-pnk"/>
                                             <constraint firstItem="7DY-Dr-Pgw" firstAttribute="leading" secondItem="9lZ-e8-QeJ" secondAttribute="leading" id="xtl-zL-hsy"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-tE-O4U" userLabel="Scroll View">
-                                        <rect key="frame" x="0.0" y="345" width="375" height="230"/>
+                                        <rect key="frame" x="0.0" y="285.5" width="320" height="190.5"/>
                                         <color key="backgroundColor" red="0.92156862750000001" green="0.7725490196" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
