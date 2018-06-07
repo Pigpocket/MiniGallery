@@ -13,7 +13,9 @@ class ViewController: UIViewController {
 
     // MARK: Variables
     
-    var player: AVPlayer?
+    //var player: AVPlayer?
+    var queuePlayer: AVQueuePlayer?
+    var playerLooper: AVPlayerLooper?
     
     // MARK: Outlets
     
@@ -55,16 +57,19 @@ class ViewController: UIViewController {
     }    
     
     func initializeVideoPlayerWithVideo() {
-
-        // initialize AVPlayerItem
-        let playerItem = AVPlayerItem(asset: Asset.sharedInstance[1].video)
         
-        // initialize the video player with the player item
-        self.player = AVPlayer(playerItem: playerItem)
-
+        // initialize queuePlayer
+        queuePlayer = AVQueuePlayer()
+        
+        // initialize AVPlayerItem
+        let playerItem = AVPlayerItem(asset: Asset.sharedInstance[0].video)
+        
+        // initialize the playerLooper with the player item and reference to queuePlayer
+        playerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
+        
         // create a video layer for the player
-        let layer: AVPlayerLayer = AVPlayerLayer(player: player)
-
+        let layer: AVPlayerLayer = AVPlayerLayer(player: queuePlayer)
+        
         // make the layer the same size as the container view
         layer.frame = swipeView.frame
 
@@ -74,9 +79,7 @@ class ViewController: UIViewController {
         // add the layer to the container view
         swipeView.layer.addSublayer(layer)
 
-        player?.play()
-
-        print("Video playing")
+        queuePlayer?.play()
     }
     
 }
