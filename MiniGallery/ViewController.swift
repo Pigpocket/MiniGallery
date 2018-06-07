@@ -73,13 +73,13 @@ class ViewController: UIViewController {
         performUIUpdatesOnMain {
             
             // make the layer the same size as the container view
-            layer.frame = self.videoView.frame
+            layer.frame = CGRect(x: self.swipeView.frame.minX, y: self.swipeView.frame.minY + 72, width: self.swipeView.frame.width, height: self.swipeView.frame.height - 72)
             
             // make the video fill the layer as much as possible while keeping its aspect size
             layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
             
             // add the layer to the container view
-            self.videoView.layer.addSublayer(layer)
+            self.swipeView.layer.addSublayer(layer)
         }
         queuePlayer?.play()
     }

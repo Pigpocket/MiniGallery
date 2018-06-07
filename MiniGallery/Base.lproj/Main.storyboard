@@ -45,20 +45,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DY-Dr-Pgw" userLabel="Video View">
-                                                <rect key="frame" x="0.0" y="72" width="320" height="213.5"/>
-                                                <color key="backgroundColor" red="0.71372549019999998" green="0.70980392160000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.51764705879999995" green="0.27450980390000002" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="vIn-Dh-WJf" firstAttribute="leading" secondItem="9lZ-e8-QeJ" secondAttribute="leading" id="4hs-eA-2A7"/>
                                             <constraint firstAttribute="trailing" secondItem="vIn-Dh-WJf" secondAttribute="trailing" id="GY3-sT-NZr"/>
                                             <constraint firstItem="vIn-Dh-WJf" firstAttribute="top" secondItem="9lZ-e8-QeJ" secondAttribute="top" id="OzG-yv-jJb"/>
-                                            <constraint firstAttribute="bottom" secondItem="7DY-Dr-Pgw" secondAttribute="bottom" id="UUO-hb-ekH"/>
-                                            <constraint firstAttribute="trailing" secondItem="7DY-Dr-Pgw" secondAttribute="trailing" id="jiv-dD-lUE"/>
-                                            <constraint firstItem="7DY-Dr-Pgw" firstAttribute="top" secondItem="vIn-Dh-WJf" secondAttribute="bottom" id="q76-4n-pnk"/>
-                                            <constraint firstItem="7DY-Dr-Pgw" firstAttribute="leading" secondItem="9lZ-e8-QeJ" secondAttribute="leading" id="xtl-zL-hsy"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-tE-O4U" userLabel="Scroll View">
@@ -96,7 +88,6 @@
                         <outlet property="scrollView" destination="b0w-tE-O4U" id="0Ky-Mp-MhT"/>
                         <outlet property="stackView" destination="e4K-22-smW" id="dEs-Mz-FId"/>
                         <outlet property="swipeView" destination="9lZ-e8-QeJ" id="rXu-1f-DLd"/>
-                        <outlet property="videoView" destination="7DY-Dr-Pgw" id="v27-2X-IKE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
