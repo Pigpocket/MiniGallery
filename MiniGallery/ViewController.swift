@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: Variables
     
@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        configureGestureRecognizers()
+        
         ClientClass.sharedInstance().taskForGetMiniGalleryData() { (media, error) in
             
             if error != nil {
@@ -44,16 +46,6 @@ class ViewController: UIViewController {
             }
         }
         
-        ClientClass.sharedInstance().getMiniGalleryResults { (assets, error) in
-            
-            if error != nil {
-                print("Convenience error")
-            }
-            
-            if let assets = assets {
-                print("These are the convenience assets: \(assets)")
-            }
-        }
     }    
     
     func initializeVideoPlayerWithVideo() {
