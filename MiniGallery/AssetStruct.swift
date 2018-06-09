@@ -13,6 +13,8 @@ import AVFoundation
 struct Asset {
     
     static var sharedInstance: [Asset] = [Asset]()
+    static var avPlayerItems: [AVPlayerItem] = []
+    static var movieNames = ["Joe", "Man On A Ledge", "The Hunted", "Igor", "Teeth", "The Town That Dreaded The Sun"]
     
     // MARK: Properties
     

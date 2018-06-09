@@ -17,7 +17,6 @@
 		37FB06C020C7A5000018B02A /* AssetStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB06BF20C7A5000018B02A /* AssetStruct.swift */; };
 		37FB06C420C7A7A90018B02A /* MiniGalleryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB06C320C7A7A90018B02A /* MiniGalleryConstants.swift */; };
 		37FB06C620C831170018B02A /* GCDSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB06C520C831170018B02A /* GCDSwift.swift */; };
-		37FB06C820C83AA00018B02A /* MiniGalleryConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB06C720C83AA00018B02A /* MiniGalleryConvenience.swift */; };
 		37FB06CC20CB38400018B02A /* SwipeGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FB06CB20CB38400018B02A /* SwipeGestureDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		37FB06BF20C7A5000018B02A /* AssetStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetStruct.swift; sourceTree = "<group>"; };
 		37FB06C320C7A7A90018B02A /* MiniGalleryConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGalleryConstants.swift; sourceTree = "<group>"; };
 		37FB06C520C831170018B02A /* GCDSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDSwift.swift; sourceTree = "<group>"; };
-		37FB06C720C83AA00018B02A /* MiniGalleryConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGalleryConvenience.swift; sourceTree = "<group>"; };
 		37FB06CB20CB38400018B02A /* SwipeGestureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGestureDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,7 +75,6 @@
 				37FB06B220C63FD20018B02A /* LaunchScreen.storyboard */,
 				37FB06B520C63FD20018B02A /* Info.plist */,
 				37FB06BB20C731E80018B02A /* MiniGalleryClient.swift */,
-				37FB06C720C83AA00018B02A /* MiniGalleryConvenience.swift */,
 				37FB06C320C7A7A90018B02A /* MiniGalleryConstants.swift */,
 				37FB06BF20C7A5000018B02A /* AssetStruct.swift */,
 				37FB06CB20CB38400018B02A /* SwipeGestureDelegate.swift */,
@@ -164,7 +161,6 @@
 				37FB06AC20C63FD20018B02A /* ViewController.swift in Sources */,
 				37FB06C620C831170018B02A /* GCDSwift.swift in Sources */,
 				37FB06AA20C63FD20018B02A /* AppDelegate.swift in Sources */,
-				37FB06C820C83AA00018B02A /* MiniGalleryConvenience.swift in Sources */,
 				37FB06CC20CB38400018B02A /* SwipeGestureDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

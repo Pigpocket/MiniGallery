@@ -13,9 +13,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: Variables
     
-    //var player: AVPlayer?
-    var queuePlayer: AVQueuePlayer?
+    var player: AVPlayer?
     var playerLooper: AVPlayerLooper?
+    var currentVideo = 0
     
     // MARK: Outlets
     
@@ -24,13 +24,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var swipeView: UIView!
     @IBOutlet weak var scrollView: UIView!
     @IBOutlet weak var movieNameLabel: UILabel!
-    @IBOutlet weak var videoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         configureGestureRecognizers()
+        movieNameLabel.text = Asset.movieNames[currentVideo]
         
         ClientClass.sharedInstance().taskForGetMiniGalleryData() { (media, error) in
             
@@ -40,27 +39,35 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             
             if let media = media {
                 Asset.sharedInstance = Asset.assetFromResults(media as! [[String : AnyObject]])
-                print(Asset.sharedInstance[1].video)
+                for asset in Asset.sharedInstance {
+                    let avPlayerItem = AVPlayerItem(asset: asset.video)
+                    Asset.avPlayerItems.append(avPlayerItem)
+                }
                 
                 self.initializeVideoPlayerWithVideo()
             }
         }
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playerItemDidReachEnd(notification:)),
+                                               name: Notification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: player?.currentItem)
+        
     }    
     
     func initializeVideoPlayerWithVideo() {
         
-        // initialize queuePlayer
-        queuePlayer = AVQueuePlayer()
+        // initialize AVPlayer
+        player = AVPlayer()
         
         // initialize AVPlayerItem
-        let playerItem = AVPlayerItem(asset: Asset.sharedInstance[0].video)
+        let playerItem = AVPlayerItem(asset: Asset.sharedInstance[currentVideo].video)
         
-        // initialize the playerLooper with the player item and reference to queuePlayer
-        playerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
+        // load AVPlayer with AVPlayerItem
+        player?.replaceCurrentItem(with: playerItem)
         
         // create a video layer for the player
-        let layer: AVPlayerLayer = AVPlayerLayer(player: queuePlayer)
+        let layer: AVPlayerLayer = AVPlayerLayer(player: player)
         
         performUIUpdatesOnMain {
             
@@ -73,7 +80,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             // add the layer to the container view
             self.swipeView.layer.addSublayer(layer)
         }
-        queuePlayer?.play()
+        player?.play()
+        
     }
 }
 

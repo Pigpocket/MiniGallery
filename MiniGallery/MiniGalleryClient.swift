@@ -119,20 +119,6 @@ class ClientClass {
         }
     }
     
-//    func getVideo(_ urlString: String?, completionHandler handler: @escaping (_ video: AVAsset) -> Void) {
-//
-//        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
-//
-//            if let url = URL(string: urlString!) {
-//                if let videoData = AVAsset(url: url) {
-//                    if let video = AVAsset(data: videoData) {
-//                        handler(video)
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
     class func sharedInstance() -> ClientClass {
         struct Singleton {
             static var sharedInstance = ClientClass()
